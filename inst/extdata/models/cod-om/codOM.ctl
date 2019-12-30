@@ -63,16 +63,16 @@
 #_growth_parms
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE env_var&link dev_link dev_minyr dev_maxyr dev_PH Block Block_Fxn
 # Sex: 1  BioPattern: 1  NatMort
- 0.01 1.8 0.2 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_p_1_Fem_GP_1
+ 0.01 1.8 0.2 0 0 0 -3 0 0 0 0 0 0 0 # NatM_p_1_Fem_GP_1
 # Sex: 1  BioPattern: 1  Growth
- 10 80 20 30.8 0.2 0 -2 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
- 25 250 132 120.1 0.2 0 -5 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
- 0.01 2 0.2 0.25 0.8 0 -2 0 0 0 0 0 0 0 # VonBert_K_Fem_GP_1
- -0.01 0.5 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # CV_young_Fem_GP_1
- 0.01 0.5 0.1 0.1 0.8 0 -5 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
+ 1 100 20 0 0 0 4 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
+ 6.6 660 132 0 0 0 4 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
+ 0.01 1 0.2 0 0 0 4 0 0 0 0 0 0 0 # VonBert_K_Fem_GP_1
+ 0.01 0.5 0.1 0 0 0 5 0 0 0 0 0 0 0 # CV_young_Fem_GP_1
+ 0.01 0.5 0.1 0 0 0 5 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
 # Sex: 1  BioPattern: 1  WtLen
- 0 3 6.8e-06 6.8e-06 0 0 -1 0 0 0 0 0 0 0 # Wtlen_1_Fem
- 2.5 3.5 3.101 3.101 0.2 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Fem
+ 0 3 6.8e-06 0 0 0 -1 0 0 0 0 0 0 0 # Wtlen_1_Fem
+ 2.5 3.5 3.101 0 0 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Fem
 # Sex: 1  BioPattern: 1  Maturity&Fecundity
  10 50 38.18 0 0 0 -3 0 0 0 0 0 0 0 # Mat50%_Fem
  -2 2 -0.276 0 0 0 -3 0 0 0 0 0 0 0 # Mat_slope_Fem
@@ -89,7 +89,7 @@
 #  Age Error from parameters
 #  catch multiplier
 #  fraction female, by GP
- 0.000001 0.999999 0.5 0.5  0.5 0 -99 0 0 0 0 0 0 0 # FracFemale_GP_1
+ 0.000001 0.999999 0.5 0  0 0 -99 0 0 0 0 0 0 0 # FracFemale_GP_1
 #
 #_no timevary MG parameters
 #
@@ -102,16 +102,16 @@
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-            10            20          18.7          10.3            10             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
-           0.2             1          0.65           0.7          0.05             0         -4          0          0          0          0          0          0          0 # SR_BH_steep
-             0             2           0.4           0.8           0.8             0         -5          0          0          0          0          0          0          0 # SR_sigmaR
-            -5             5             0             0             1             0         -4          0          0          0          0          0          0          0 # SR_regime
+             4            20          18.7             0             0             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+           0.2             1          0.65             0             0             0         -4          0          0          0          0          0          0          0 # SR_BH_steep
+             0             2           0.4             0             0             0         -5          0          0          0          0          0          0          0 # SR_sigmaR
+            -5             5             0             0             0             0         -4          0          0          0          0          0          0          0 # SR_regime
              0             0             0             0             0             0        -99          0          0          0          0          0          0          0 # SR_autocorr
 #_no timevary SR parameters
 1 #do_recdev:  0=none; 1=devvector (R=F(SSB)+dev); 2=deviations (R=F(SSB)+dev); 3=deviations (R=R0*dev; dev2=R-f(SSB)); 4=like 3 with sum(dev2) adding penalty
 1 # first year of main recr_devs; early devs can preceed this era
 100 # last year of main recr_devs; forecast devs start in following year
--2 #_recdev phase
+3 #_recdev phase
 1 # (0/1) to read 13 advanced options
  0 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
  -4 #_recdev_early_phase
@@ -171,8 +171,8 @@
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-            -3             3             0             0            99             0         -5          0          0          0          0          0          0          0  #  LnQ_base_Fishery(1)
-            -3             3             0             0            99             0         -5          0          0          0          0          0          0          0  #  LnQ_base_Survey(2)
+            -20           20             0             0             0             0          5          0          0          0          0          0          0          0  #  LnQ_base_Fishery(1)
+            -20           20             0             0             0             0          5          0          0          0          0          0          0          0  #  LnQ_base_Survey(2)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
@@ -219,25 +219,25 @@
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   Fishery LenSelex
-            20           199          50.8          50.8          0.05             0          2          0          0          0          0        0.5          0          0  #  SizeSel_P1_Fishery(1)
-            -5             3            -3            -3          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P2_Fishery(1)
-            -4            12           5.1           5.1          0.05             0          3          0          0          0          0        0.5          0          0  #  SizeSel_P3_Fishery(1)
-            -2            16            15            15          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P4_Fishery(1)
-           -15             5          -999          -999          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P5_Fishery(1)
-            -5          1000           999           999          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P6_Fishery(1)
+             5           199          50.8             0             0             0          2          0          0          0          0          0          0          0  #  SizeSel_P1_Fishery(1)
+            -5             3            -3             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P2_Fishery(1)
+             0            25           5.1             0             0             0          3          0          0          0          0          0          0          0  #  SizeSel_P3_Fishery(1)
+            -2            16            15             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P4_Fishery(1)
+         -1000          1000          -999             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P5_Fishery(1)
+         -1000          1000           999             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P6_Fishery(1)
 # 2   Survey LenSelex
-            20           199          41.8          41.8          0.05             0          2          0          0          0          0        0.5          0          0  #  SizeSel_P1_Survey(2)
-            -5             3            -4            -4          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P2_Survey(2)
-            -4            12           5.2           5.2          0.05             0          3          0          0          0          0        0.5          0          0  #  SizeSel_P3_Survey(2)
-            -2            15            14            14          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P4_Survey(2)
-          -100           100           -99           -99          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P5_Survey(2)
-          -100           100            99            99          0.05             0        -99          0          0          0          0        0.5          0          0  #  SizeSel_P6_Survey(2)
+             5           199          41.8             0             0             0          2          0          0          0          0          0          0          0  #  SizeSel_P1_Survey(2)
+            -5             3            -4             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P2_Survey(2)
+             0            25           5.2             0             0             0          3          0          0          0          0          0          0          0  #  SizeSel_P3_Survey(2)
+            -2            16            14             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P4_Survey(2)
+         -1000          1000           -99             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P5_Survey(2)
+         -1000          1000            99             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSel_P6_Survey(2)
 # 1   Fishery AgeSelex
-             0             1           0.1           0.1            99             0         -3          0          0          0          0        0.5          0          0  #  AgeSel_P1_Fishery(1)
-             0           101           100           100            99             0         -3          0          0          0          0        0.5          0          0  #  AgeSel_P2_Fishery(1)
+             0             1           0.1             0             0             0         -3          0          0          0          0          0          0          0  #  AgeSel_P1_Fishery(1)
+             0           101           100             0             0             0         -3          0          0          0          0          0          0          0  #  AgeSel_P2_Fishery(1)
 # 2   Survey AgeSelex
-             0             1           0.1           0.1            99             0         -3          0          0          0          0        0.5          0          0  #  AgeSel_P1_Survey(2)
-             0           101           100           100            99             0         -3          0          0          0          0        0.5          0          0  #  AgeSel_P2_Survey(2)
+             0             1           0.1             0             0             0         -3          0          0          0          0          0          0          0  #  AgeSel_P1_Survey(2)
+             0           101           100             0             0             0         -3          0          0          0          0          0          0          0  #  AgeSel_P2_Survey(2)
 #_no timevary selex parameters
 #
 0   #  use 2D_AR1 selectivity(0/1):  experimental feature
